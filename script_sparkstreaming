@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Dstream Streaming Spark Job
+spark-submit --class com.kehaque634.spark.jobs.RealTimeSparkStreaming.DstreamSparkStreaming --name "RealTime Creditcard SparkStreaming Dstream" --master spark://kehaque634:6066 --deploy-mode cluster  $HOME/SparkStreaming/spark/sparkstreaming-spark.jar $HOME/SparkStreaming/spark/application-local.conf
