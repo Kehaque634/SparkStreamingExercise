@@ -1,15 +1,34 @@
 # SparkStreamingExercise
-This is the solution of Spark Streaming Exercise provided by Infosys
-Spark Streaming Exercise
-Please write a program in Java. The program must implement a logic to stream credit card transactions from a CSV and calculate the count of transactions over last 3 minutes with a sliding window of 2 minute. For example
+
+Start All Servers
+**********************************************************************************
+
+
+#Start Zookeeper Server
+  cd /usr/local/kafka
+  zookeeper-server-start etc/kafka/zookeeper.properties 
+
+#Start Kafka Server
+  cd /usr/local/kafka
+  kafka-server-start etc/kafka/server.properties
+
+#Create topic
+  kafka-topics --zookeeper localhost:2181 --create --topic creditcardTransaction  --replication-factor 1 --partitions 3 
+
+ #Spark Cluster Setup  
+    #Start Spark Master
+      start-master.sh
+  
+    #Start Spark Slave
+      start-slave.sh spark://kehaque634:7077  
+
+    #Access Spark Web UI
+      http://vm_ip:8080/ 
+
+#Start Cassandra Server
+cassandra -f
+
+#Connect to Cassandra Server through Cassandra console client
+cqlsh
  
-The above one is a sliding window example over the last 3-time units with a slides by 2 time units. Please find additional instructions below
-1.	Must use SPARK streaming
-2.	The CSV will need to have at least 10,000 transactions
-3.	Please use MOCKNEAT (`) to generate the credit card transactions. 
-4.	All source code for the program must be in a git repository
-5.	The Git repository must be in your github.com account and publicly accessible (github.com is free for public access)
-6.	You should assume we will clone your repo and test it personally
-7.	Provide some kind of README explaining your work and how others would use it
-8.	You have 48 hours to complete this assignment
 
